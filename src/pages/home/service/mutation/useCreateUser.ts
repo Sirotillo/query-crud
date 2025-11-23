@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import React from "react";
 import { request } from "../../../../config/request";
 
 interface User {

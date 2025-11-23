@@ -17,7 +17,6 @@ import { useCreateUser } from "../../pages/home/service/mutation/useCreateUser";
 import { Spinner } from "../ui/spinner";
 import { useQueryClient } from "@tanstack/react-query";
 import { useUpdateUser } from "../../pages/home/service/mutation/useUpdateUser";
-import { useDeleteUser } from "../../pages/home/service/mutation/useDeleteUser";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -51,7 +50,7 @@ export const CreateUser = (defaultValue: DefaultValue) => {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     if (defaultValue?.id) {
       update(data, {
-        onSuccess: (res) => {
+        onSuccess: () => {
           client.setQueriesData(
             { queryKey: ["user_list"] },
             (oldData: DefaultValue[]) => {
@@ -73,7 +72,7 @@ export const CreateUser = (defaultValue: DefaultValue) => {
       });
     } else {
       mutate(data, {
-        onSuccess: (res) => {
+        onSuccess: () => {
           client.invalidateQueries({ queryKey: ["user_list"] });
           form.reset();
           setOpen(false);

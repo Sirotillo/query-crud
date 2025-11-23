@@ -2,7 +2,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { CreateUser } from "../form/form";
 import { Button } from "../ui/button";
 import { useDeleteUser } from "../../pages/home/service/mutation/useDeleteUser";
-import { useGetUser } from "../../pages/home/service/query/useGetUser";
 
 interface UserList {
   name: string;
