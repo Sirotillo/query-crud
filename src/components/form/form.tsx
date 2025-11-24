@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -91,6 +91,7 @@ export const CreateUser = (defaultValue: DefaultValue) => {
       </Button>
       <Dialog onOpenChange={(res) => setOpen(res)} open={open}>
         <DialogContent>
+          <DialogTitle>Bilmiman</DialogTitle>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
